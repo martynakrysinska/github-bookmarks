@@ -7,6 +7,8 @@ const { searchRouter } = require("./routes/search")
 
 const app = express()
 app.use(logger("dev"))
+app.use(express.urlencoded({ extended: true }))
+app.use(express.json())
 
 app.use("/bookmarks", bookmarksRouter)
 app.use("/search", searchRouter)

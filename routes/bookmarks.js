@@ -4,24 +4,24 @@ const bookmarksRouter = express.Router()
 // :id stands for repository id, not bookmark id!
 // to keep things simple bookmarks don't have their own ids
 
+// Controllers:
+const {
+	getAllBookmarks,
+	addBookmark,
+	deleteBookmark
+} = require("../controllers/bookmarks")
+
+// Routes:
 const routes = {
 	getAllBookmarks: "/",
 	addBookmark: "/:id",
 	deleteBookmark: "/:id"
 }
 
-bookmarksRouter.get(routes.getAllBookmarks, (req, res) => {
-	res.send("get all bookmarks")
-})
+bookmarksRouter.get(routes.getAllBookmarks, getAllBookmarks)
 
-bookmarksRouter.post(routes.addBookmark, (req, res) => {
-	const { id } = req.params
-	res.send(`added a repo with id: ${id} to your bookmarks`)
-})
+bookmarksRouter.post(routes.addBookmark, addBookmark)
 
-bookmarksRouter.delete(routes.deleteBookmark, (req, res) => {
-	const { id } = req.params
-	res.send(`deleted a repository with id ${id} from your bookmarks`)
-})
+bookmarksRouter.delete(routes.deleteBookmark, deleteBookmark)
 
 module.exports = { bookmarksRouter }
