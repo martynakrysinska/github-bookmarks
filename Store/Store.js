@@ -8,6 +8,11 @@ class Store {
 	}
 
 	deleteBookmark(id) {
+		if (!this.bookmarks.has(id)) {
+			const error = new Error("Bookmark with given id doesn't exist")
+			error.statusCode = 400
+			throw error
+		}
 		this.bookmarks.delete(Number(id))
 	}
 }

@@ -1,8 +1,7 @@
 const express = require("express")
 const bookmarksRouter = express.Router()
-
-// :id stands for repository id, not bookmark id!
-// to keep things simple bookmarks don't have their own ids
+const sendJson = require("../middleware/sendJson")
+const sendError = require("../middleware/sendError")
 
 // Controllers:
 const {
@@ -23,5 +22,11 @@ bookmarksRouter.get(routes.getAllBookmarks, getAllBookmarks)
 bookmarksRouter.post(routes.addBookmark, addBookmark)
 
 bookmarksRouter.delete(routes.deleteBookmark, deleteBookmark)
+
+// middleware that sends the response:
+bookmarksRouter.use(sendJson)
+
+// middleware that send the error
+bookmarksRouter.use(sendError)
 
 module.exports = { bookmarksRouter }
