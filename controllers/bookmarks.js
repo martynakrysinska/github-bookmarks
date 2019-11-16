@@ -3,9 +3,13 @@ const axios = require("axios")
 
 module.exports = {
 	getAllBookmarks: (req, res, next) => {
-		res.locals.response = Object.assign({}, res.locals.response || {}, {
-			bookmarks: [...BookmarkStore.bookmarks]
-		})
+		try {
+			res.locals.response = Object.assign({}, res.locals.response || {}, {
+				bookmarks: [...BookmarkStore.bookmarks]
+			})
+		} catch (e) {
+			next(e)
+		}
 		next()
 	},
 	addBookmark: async (req, res, next) => {
