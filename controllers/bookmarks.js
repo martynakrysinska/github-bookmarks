@@ -1,13 +1,26 @@
+const BookmarkStore = require("../Store/Store")
+const axios = require("axios")
+
 module.exports = {
-	getAllBookmarks: async (req, res) => {
-		res.send("get all bookmarks")
+	getAllBookmarks: (req, res) => {
+		res.send({ bookmarks: [...BookmarkStore.bookmarks] })
 	},
 	addBookmark: async (req, res) => {
 		const { id } = req.params
-		res.send(`added a repo with id: ${id} to your bookmarks`)
+		try {
+			const resp = await axios.get(
+				`https://api.github.com/repositories/${id}`
+			)
+			BookmarkStore.addBookmark(resp.data)
+			res.send(`added a repository with id: ${id} to your bookmarks`)
+		} catch (e) {
+			throw new Error(e)
+		}
 	},
-	deleteBookmark: async (req, res) => {
+	deleteBookmark: (req, res) => {
 		const { id } = req.params
+		BookmarkStore.deleteBookmark(id)
+
 		res.send(`deleted a repository with id ${id} from your bookmarks`)
 	}
 }
