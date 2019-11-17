@@ -1,4 +1,4 @@
-const initialState = {
+export const initialState = {
 	bookmarks: new Map(),
 	searchResult: []
 }
