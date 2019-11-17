@@ -26,7 +26,7 @@ bookmarksRouter.delete(routes.deleteBookmark, deleteBookmark)
 // middleware that sends the response:
 bookmarksRouter.use(sendJson)
 
-// middleware that send the error
+// middleware that sends the error
 bookmarksRouter.use(sendError)
 
 module.exports = { bookmarksRouter }

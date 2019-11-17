@@ -1,16 +1,19 @@
 const axios = require("axios")
 
 module.exports = {
-	searchByKeyword: async (req, res) => {
+	searchByKeyword: async (req, res, next) => {
 		const { q } = req.query
 		const url = `https://api.github.com/search/repositories?q=${q}`
 
 		try {
 			const { data } = await axios.get(url)
-			res.send({ items: data.items })
+			res.locals.response = Object.assign({}, res.locals.response || {}, {
+				count: data.total_count,
+				items: data.items
+			})
 		} catch (e) {
-			throw new Error(e)
+			next(e)
 		}
-		res.end()
+		next()
 	}
 }
