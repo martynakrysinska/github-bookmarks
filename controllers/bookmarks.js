@@ -25,6 +25,7 @@ module.exports = {
 				message: `Successfully added a repository with id: ${id} to your bookmarks`
 			})
 		} catch (e) {
+			if (e.message.includes("404")) e.statusCode = 404
 			next(e)
 		}
 		next()
@@ -40,5 +41,14 @@ module.exports = {
 			next(e)
 		}
 		next()
+	},
+	noMatch: (req, res, next) => {
+		if (res.locals.response) {
+			next()
+		} else {
+			const error = new Error("No matching routes found")
+			error.statusCode = 404
+			next(error)
+		}
 	}
 }
