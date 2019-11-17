@@ -1,5 +1,5 @@
 const express = require("express")
-const bookmarksRouter = express.Router()
+const bookmarksRouter = express.Router({ strict: true })
 const sendJson = require("../middleware/sendJson")
 const sendError = require("../middleware/sendError")
 
@@ -7,14 +7,16 @@ const sendError = require("../middleware/sendError")
 const {
 	getAllBookmarks,
 	addBookmark,
-	deleteBookmark
+	deleteBookmark,
+	noMatch
 } = require("../controllers/bookmarks")
 
 // Routes:
 const routes = {
 	getAllBookmarks: "/",
 	addBookmark: "/:id",
-	deleteBookmark: "/:id"
+	deleteBookmark: "/:id",
+	noMatch: "*"
 }
 
 bookmarksRouter.get(routes.getAllBookmarks, getAllBookmarks)
@@ -22,6 +24,8 @@ bookmarksRouter.get(routes.getAllBookmarks, getAllBookmarks)
 bookmarksRouter.post(routes.addBookmark, addBookmark)
 
 bookmarksRouter.delete(routes.deleteBookmark, deleteBookmark)
+
+bookmarksRouter.all(routes.noMatch, noMatch)
 
 // middleware that sends the response:
 bookmarksRouter.use(sendJson)
