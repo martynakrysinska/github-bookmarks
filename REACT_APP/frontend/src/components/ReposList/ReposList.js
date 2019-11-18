@@ -2,7 +2,7 @@ import React from "react"
 import { useSelector } from "react-redux"
 
 const ReposList = () => {
-	const reducer = useSelector(state => state.reducer)
+	const reducer = useSelector(state => state.reposReducer)
 	const { repos, isLoading, error } = reducer
 
 	if (isLoading) {
@@ -13,14 +13,16 @@ const ReposList = () => {
 		return (
 			<div>
 				<ul>
-					{repos.map(repo => (
-						<li key={repo.id}>
-							<a target="_blank" href={repo.html_url}>
-								{repo.name}
-							</a>{" "}
-							by {repo.owner.login}
-						</li>
-					))}
+					{repos
+						? repos.map(repo => (
+								<li key={repo.id}>
+									<a target="_blank" href={repo.html_url}>
+										{repo.name}
+									</a>{" "}
+									by {repo.owner.login}
+								</li>
+						  ))
+						: null}
 				</ul>
 			</div>
 		)

@@ -1,3 +1,4 @@
+// REPOS ACTIONS
 export const fetchRepos = repos => dispatch => {
 	dispatch({
 		type: "SUCCESS",
@@ -14,6 +15,25 @@ export const loadRepos = () => dispatch => {
 export const failRepos = error => dispatch => {
 	dispatch({
 		type: "ERROR",
-		payload: error
+		error: error
+	})
+}
+// BOOKMARKS ACTIONS
+export const setBookmarks = bookmarks => dispatch => {
+	dispatch({
+		type: "SUCCESS",
+		bookmarks
+	})
+}
+
+export const loadBookmarks = () => dispatch => {
+	dispatch({
+		type: "IS_LOADING"
+	})
+}
+
+export const failBookmarks = () => dispatch => {
+	dispatch({
+		type: "ERROR"
 	})
 }

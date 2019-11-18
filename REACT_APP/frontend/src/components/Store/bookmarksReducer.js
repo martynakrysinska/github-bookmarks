@@ -1,17 +1,17 @@
 export const initialState = {
 	isLoading: false,
-	repos: [],
+	bookmarks: [],
 	error: null
 }
 
-const reposReducer = (state = initialState, action) => {
+const bookmarksReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case "IS_LOADING": {
 			return { ...state, isLoading: true }
 		}
 
 		case "SUCCESS": {
-			return { ...state, repos: action.repos, isLoading: false }
+			return { ...state, repos: action.bookmarks, isLoading: false }
 		}
 
 		case "ERROR": {
@@ -23,5 +23,4 @@ const reposReducer = (state = initialState, action) => {
 	}
 }
 
-// EXPORT FIRST AND COMBINE WITH BOOKMARKS? YEAH
-export default reposReducer
+export default bookmarksReducer

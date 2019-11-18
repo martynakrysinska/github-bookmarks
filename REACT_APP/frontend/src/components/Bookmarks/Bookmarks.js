@@ -1,7 +1,11 @@
 import React from "react"
-
+import BookmarksList from "../BookmarksList"
 const Bookmarks = () => {
-	return <div>Bookmarks Page</div>
+	return (
+		<div>
+			<BookmarksList></BookmarksList>
+		</div>
+	)
 }
 
 export default Bookmarks
