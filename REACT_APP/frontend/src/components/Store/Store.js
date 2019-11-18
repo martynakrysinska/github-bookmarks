@@ -1,12 +1,9 @@
-import reducer, { initialState } from "./reducer"
+import reposReducer from "./reposReducer"
 import { applyMiddleware, createStore } from "redux"
 import thunk from "redux-thunk"
 
 const middlewares = [thunk]
-const Store = createStore(
-	reducer,
-	initialState,
-	applyMiddleware(...middlewares)
-)
+
+const Store = createStore(reposReducer, applyMiddleware(...middlewares))
 
 export default Store

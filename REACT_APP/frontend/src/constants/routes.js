@@ -1,2 +1,2 @@
 export const HOME = "/"
-export const BOOKMARKS = "/BOOKMARKS"
+export const BOOKMARKS = "/bookmarks"
