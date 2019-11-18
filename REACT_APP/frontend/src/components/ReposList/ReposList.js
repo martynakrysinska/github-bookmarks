@@ -13,13 +13,14 @@ const ReposList = () => {
 		return (
 			<div>
 				<ul>
-					{repos
-						? repos.map(repo => (
-								<li key={repo.id}>
-									<a href={repo.url}>{repo.name}</a> by {repo.owner.login}
-								</li>
-						  ))
-						: null}
+					{repos.map(repo => (
+						<li key={repo.id}>
+							<a target="_blank" href={repo.html_url}>
+								{repo.name}
+							</a>{" "}
+							by {repo.owner.login}
+						</li>
+					))}
 				</ul>
 			</div>
 		)
