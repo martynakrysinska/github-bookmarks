@@ -8,7 +8,7 @@ class Store {
 	}
 
 	deleteBookmark(id) {
-		if (!this.bookmarks.has(id)) {
+		if (!this.bookmarks.has(Number(id))) {
 			const error = new Error("Bookmark with given id doesn't exist")
 			error.statusCode = 400
 			throw error
