@@ -1,20 +1,20 @@
 // REPOS ACTIONS
 export const fetchRepos = repos => dispatch => {
 	dispatch({
-		type: "SUCCESS",
+		type: "REPOS_SUCCESS",
 		repos
 	})
 }
 
 export const loadRepos = () => dispatch => {
 	dispatch({
-		type: "IS_LOADING"
+		type: "REPOS_IS_LOADING"
 	})
 }
 
 export const failRepos = error => dispatch => {
 	dispatch({
-		type: "ERROR",
+		type: "REPOS_ERROR",
 		error: error
 	})
 }

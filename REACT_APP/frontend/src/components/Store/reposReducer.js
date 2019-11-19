@@ -6,15 +6,15 @@ export const initialState = {
 
 const reposReducer = (state = initialState, action) => {
 	switch (action.type) {
-		case "IS_LOADING": {
+		case "REPOS_IS_LOADING": {
 			return { ...state, isLoading: true }
 		}
 
-		case "SUCCESS": {
+		case "REPOS_SUCCESS": {
 			return { ...state, repos: action.repos, isLoading: false }
 		}
 
-		case "ERROR": {
+		case "REPOS_ERROR": {
 			return { ...state, error: action.error, isLoading: false }
 		}
 
