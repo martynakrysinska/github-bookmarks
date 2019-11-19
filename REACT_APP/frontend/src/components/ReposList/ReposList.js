@@ -1,5 +1,6 @@
 import React from "react"
 import { useSelector } from "react-redux"
+import ToggleBookmark from "../ToggleBookmark"
 
 const ReposList = () => {
 	const reducer = useSelector(state => state.reposReducer)
@@ -16,10 +17,11 @@ const ReposList = () => {
 					{repos
 						? repos.map(repo => (
 								<li key={repo.id}>
-									<a target="_blank" href={repo.html_url}>
+									<a target="_blank" rel="noopener noreferrer" href={repo.html_url}>
 										{repo.name}
 									</a>{" "}
 									by {repo.owner.login}
+									<ToggleBookmark id={repo.id} />
 								</li>
 						  ))
 						: null}

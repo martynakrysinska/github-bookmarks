@@ -1,20 +1,20 @@
 export const initialState = {
 	isLoading: false,
-	bookmarks: [],
+	bookmarks: new Map(),
 	error: null
 }
 
 const bookmarksReducer = (state = initialState, action) => {
 	switch (action.type) {
-		case "IS_LOADING": {
+		case "BOOKMARKS_IS_LOADING": {
 			return { ...state, isLoading: true }
 		}
 
-		case "SUCCESS": {
-			return { ...state, repos: action.bookmarks, isLoading: false }
+		case "BOOKMARKS_SUCCESS": {
+			return { ...state, bookmarks: action.bookmarks, isLoading: false }
 		}
 
-		case "ERROR": {
+		case "BOOKMARKS_ERROR": {
 			return { ...state, error: action.error, isLoading: false }
 		}
 

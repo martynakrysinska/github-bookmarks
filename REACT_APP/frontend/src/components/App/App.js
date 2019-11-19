@@ -14,20 +14,21 @@ import axios from "axios"
 
 function App() {
 	const dispatch = useDispatch()
-
 	useEffect(() => {
 		const fetchBookmarks = async () => {
 			try {
 				dispatch(loadBookmarks())
 				const response = await axios.get(`http://localhost:4000/bookmarks`)
 				const { bookmarks } = response.data.data
-				dispatch(setBookmarks(bookmarks))
+				let map = new Map()
+				bookmarks.map(bookmark => map.set(bookmark[0], bookmark[1]))
+				dispatch(setBookmarks(map))
 			} catch (e) {
 				dispatch(failBookmarks(e))
 			}
 		}
 		fetchBookmarks()
-	}, [])
+	}, [dispatch])
 
 	return (
 		<Router>

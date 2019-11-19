@@ -23,5 +23,4 @@ const reposReducer = (state = initialState, action) => {
 	}
 }
 
-// EXPORT FIRST AND COMBINE WITH BOOKMARKS? YEAH
 export default reposReducer

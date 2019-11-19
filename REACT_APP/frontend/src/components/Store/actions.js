@@ -21,19 +21,19 @@ export const failRepos = error => dispatch => {
 // BOOKMARKS ACTIONS
 export const setBookmarks = bookmarks => dispatch => {
 	dispatch({
-		type: "SUCCESS",
+		type: "BOOKMARKS_SUCCESS",
 		bookmarks
 	})
 }
 
 export const loadBookmarks = () => dispatch => {
 	dispatch({
-		type: "IS_LOADING"
+		type: "BOOKMARKS_IS_LOADING"
 	})
 }
 
 export const failBookmarks = () => dispatch => {
 	dispatch({
-		type: "ERROR"
+		type: "BOOKMARKS_ERROR"
 	})
 }
