@@ -48,7 +48,8 @@ const ToggleBookmark = props => {
 		}
 	}
 
-	const toggleBookmark = () => {
+	const toggleBookmark = e => {
+		e.stopPropagation()
 		if (isBookmarked) {
 			deleteBookmark(props.id)
 		} else {
@@ -56,7 +57,9 @@ const ToggleBookmark = props => {
 		}
 	}
 	return (
-		<span onClick={toggleBookmark}>{isBookmarked ? " true" : " false"}</span>
+		<button onClick={toggleBookmark}>
+			{isBookmarked ? " delete" : " add"}
+		</button>
 	)
 }
 

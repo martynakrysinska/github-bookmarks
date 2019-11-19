@@ -1,0 +1,15 @@
+.navigation-container {
+    width: 75%;
+    margin: 0 auto;
+}
+
+.navigation-grid {
+    width: 100%;
+    display: inline-grid;
+    grid-template-columns: 6fr 6fr;
+
+    a {
+        text-align: center;
+        padding: 1rem;
+    }
+}
