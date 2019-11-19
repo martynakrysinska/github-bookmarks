@@ -1,10 +1,12 @@
 import React from "react"
 import { useSelector } from "react-redux"
-import ToggleBookmark from "../ToggleBookmark"
+import { headline } from "./index"
+import ListItem from "../ListItem"
 const BookmarksList = () => {
 	const reducer = useSelector(state => state.bookmarksReducer)
 	const { bookmarks, isLoading, error } = reducer
 	const bookmarksArr = [...bookmarks.values()]
+
 	if (isLoading) {
 		return <p>Loading...</p>
 	} else if (error) {
@@ -12,22 +14,12 @@ const BookmarksList = () => {
 	} else {
 		return (
 			<div>
-				<ul>
-					{bookmarksArr
-						? bookmarksArr.map(bookmark => (
-								<li key={bookmark.id}>
-									<a
-										target="_blank"
-										rel="noopener noreferrer"
-										href={bookmark.html_url}
-									>
-										{bookmark.name}
-									</a>{" "}
-									by {bookmark.owner.login}
-									<ToggleBookmark id={bookmark.id} />
-								</li>
-						  ))
-						: null}
+				<ul className="repos-list">
+					{bookmarks && <ListItem repo={headline} />}
+					{bookmarksArr &&
+						bookmarksArr.map(bookmark => (
+							<ListItem key={bookmark.id} repo={bookmark} />
+						))}
 				</ul>
 			</div>
 		)
