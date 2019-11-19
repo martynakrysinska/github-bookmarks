@@ -1,4 +1,4 @@
-# Github Bookmarks
+# Github Bookmarks API
 
 Simple API for searching and bookmarking Github repositories.
 
