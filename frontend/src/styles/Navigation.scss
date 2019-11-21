@@ -1,6 +1,11 @@
+@import "./index.scss";
+
 .navigation-container {
     width: 75%;
     margin: 0 auto;
+    background-color: rgb(44, 40, 39);
+    color: $color3;
+    border-radius: 5px;
 }
 
 .navigation-grid {
@@ -12,4 +17,5 @@
         text-align: center;
         padding: 1rem;
     }
+
 }
