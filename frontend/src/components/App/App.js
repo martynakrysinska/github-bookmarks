@@ -21,7 +21,6 @@ function App() {
 				const { bookmarks } = response.data.data
 				let map = new Map()
 				bookmarks.map(bookmark => map.set(bookmark[0], bookmark[1]))
-				console.log(map)
 				dispatch(setBookmarks(map))
 			} catch (e) {
 				dispatch(failBookmarks(e))

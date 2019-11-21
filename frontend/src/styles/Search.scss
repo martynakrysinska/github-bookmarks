@@ -1,3 +1,5 @@
+@import "./index.scss";
+
 .search-container {
     margin: 1rem;
 }
@@ -5,13 +7,32 @@
 .search-form {
     width: 95%;
     display: inline-grid;
-    grid-template-columns: 5fr 1fr;
+    grid-template-columns: 6fr 1fr;
     justify-content: stretch;
     padding: 1rem;
     
     input {
         padding: .5rem;
         font-size: 1rem;
-        outline: none
+        outline: none;
+        border-radius: 3px;
+        background-color: $color3;
+        border: 1px solid rgba(128, 128, 128, 0.705)
+    }
+
+    input:focus {
+        background-color: rgb(245, 245, 245);
+    }
+
+    button {
+        padding: .5rem;
+        font-size: 1rem;
+        outline: none;
+        border-radius: 3px;
+        background-color: $color3;
+        border: none;
+        border: 1px solid rgba(128, 128, 128, 0.705);
+        cursor: pointer;
+        margin-left: 1rem
     }
 }

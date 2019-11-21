@@ -16,8 +16,8 @@ const Search = () => {
 			const response = await axios.get(
 				`http://localhost:4000/search?q=${keyword}`
 			)
-			const repositories = response.data.data.items
-			dispatch(fetchRepos(repositories))
+			const data = response.data.data
+			dispatch(fetchRepos(data))
 		} catch (e) {
 			dispatch(failRepos(e))
 		}
@@ -27,6 +27,7 @@ const Search = () => {
 		<div className="search-container">
 			<form className="search-form" onSubmit={handleSubmit}>
 				<input
+					placeholder="Search repositories, e.g. 'github bookmarks' "
 					value={keyword}
 					type="text"
 					onChange={e => setKeyword(e.target.value)}

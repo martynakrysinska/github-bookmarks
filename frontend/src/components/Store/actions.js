@@ -1,8 +1,9 @@
 // REPOS ACTIONS
-export const fetchRepos = repos => dispatch => {
+export const fetchRepos = data => dispatch => {
 	dispatch({
 		type: "REPOS_SUCCESS",
-		repos
+		repos: data.items,
+		repos_count: data.count
 	})
 }
 
