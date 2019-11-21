@@ -1,3 +1,10 @@
 .repos-list-container {
-   
+   min-height: 50%;
+display: flex;
+}
+
+.no-repos {
+    text-align: center;
+    width: 100%;
+    margin-top: 2rem;
 }

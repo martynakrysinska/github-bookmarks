@@ -8,19 +8,33 @@ const BookmarksList = () => {
 	const bookmarksArr = [...bookmarks.values()]
 
 	if (isLoading) {
-		return <p>Loading...</p>
+		return (
+			<div className="no-repos">
+				<p>Loading...</p>
+			</div>
+		)
 	} else if (error) {
-		return <p>{error.message}</p>
-	} else {
+		return (
+			<div className="no-repos">
+				<p>{error.message}</p>
+			</div>
+		)
+	} else if (bookmarksArr.length > 0) {
 		return (
 			<div>
 				<ul className="repos-list">
-					{bookmarksArr && <ListItem repo={headline} />}
-					{bookmarksArr &&
-						bookmarksArr.map(bookmark => (
-							<ListItem key={bookmark.id} repo={bookmark} />
-						))}
+					<ListItem repo={headline} />
+
+					{bookmarksArr.map(bookmark => (
+						<ListItem key={bookmark.id} repo={bookmark} />
+					))}
 				</ul>
+			</div>
+		)
+	} else {
+		return (
+			<div className="no-repos">
+				<p>Your bookmarks are empty</p>
 			</div>
 		)
 	}
