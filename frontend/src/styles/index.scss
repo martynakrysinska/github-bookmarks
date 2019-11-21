@@ -1,12 +1,23 @@
-
+$color1: rgba(241, 80, 37, 1);
+$color2: rgba(255, 255, 255, 1);
+$color3: rgba(230, 232, 230, 1);
+$color4: rgba(206, 208, 206, 1);
+$color5: rgba(25, 25, 25, 1);
   html, body {
-    // font-size: 62.5%;
+    color: rgb(94, 77, 72);
     font-size: 100%;
     width: 100vw;
     height: 100%;
     padding-top: 2%;
-    background-color: white;
     font-family: 'Open Sans Condensed', sans-serif;
+    background-color: $color4;
 }
 
+a {
+  color: inherit;
+  text-decoration: none;
+}
 
+a:hover {
+  color: $color1
+}

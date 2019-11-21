@@ -23,7 +23,7 @@ const ReposList = () => {
 	} else {
 		return (
 			<div className="repos-list-container">
-				<ul>
+				<ul className="repos-list">
 					{repos ? <ListItem repo={headline} /> : <div></div>}
 					{repos && repos.map(repo => <ListItem key={repo.id} repo={repo} />)}
 				</ul>

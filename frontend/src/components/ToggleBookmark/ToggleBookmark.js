@@ -2,6 +2,8 @@ import React from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { setBookmarks } from "../Store/actions"
 import axios from "axios"
+import "../../styles/ListItem.scss"
+import { GoBookmark } from "react-icons/go"
 
 const ToggleBookmark = props => {
 	const reducer = useSelector(state => state.bookmarksReducer)
@@ -57,9 +59,12 @@ const ToggleBookmark = props => {
 		}
 	}
 	return (
-		<button onClick={toggleBookmark}>
-			{isBookmarked ? " delete" : " add"}
-		</button>
+		<div className="svg-container">
+			<GoBookmark
+				className={isBookmarked ? "marked" : "unmarked"}
+				onClick={toggleBookmark}
+			/>
+		</div>
 	)
 }
 

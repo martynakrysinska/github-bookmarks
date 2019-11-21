@@ -15,7 +15,7 @@ const BookmarksList = () => {
 		return (
 			<div>
 				<ul className="repos-list">
-					{bookmarks && <ListItem repo={headline} />}
+					{bookmarksArr && <ListItem repo={headline} />}
 					{bookmarksArr &&
 						bookmarksArr.map(bookmark => (
 							<ListItem key={bookmark.id} repo={bookmark} />
