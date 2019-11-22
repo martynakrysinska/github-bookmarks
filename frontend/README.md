@@ -2,10 +2,10 @@
 
 Client side for searching and bookmarking repositories.
 
-### 1. Search for github repositories
+### 1. Search for github repositories ("/")
 ![img](https://i.imgur.com/yXA0y4H.png)
 
-### 2. Save them in bookmarks
+### 2. Save them in bookmarks ("/bookmarks")
 ![img](https://i.imgur.com/GG9E9Ia.png)
 
 
