@@ -4,11 +4,12 @@ import axios from "axios"
 export const fetchRepos = keyword => async dispatch => {
 	if (!keyword) {
 		let error = new Error("You need to provide a search term")
-		dispatch({
+		return dispatch({
 			type: "REPOS_ERROR",
 			error
 		})
 	}
+
 	dispatch({
 		type: "REPOS_IS_LOADING"
 	})
