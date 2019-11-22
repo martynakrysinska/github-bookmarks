@@ -22,7 +22,8 @@ module.exports = {
 
 			BookmarkStore.addBookmark(data)
 			res.locals.response = Object.assign({}, res.locals.response || {}, {
-				message: `Successfully added a repository with id: ${id} to your bookmarks`
+				message: `Successfully added a repository with id: ${id} to your bookmarks`,
+				bookmarks: [...BookmarkStore.bookmarks]
 			})
 		} catch (e) {
 			if (e.message.includes("404")) e.statusCode = 404
@@ -35,7 +36,8 @@ module.exports = {
 		try {
 			BookmarkStore.deleteBookmark(id)
 			res.locals.response = Object.assign({}, res.locals.response || {}, {
-				message: `Successfully deleted a repository with id: ${id} to your bookmarks`
+				message: `Successfully deleted a repository with id: ${id} from your bookmarks`,
+				bookmarks: [...BookmarkStore.bookmarks]
 			})
 		} catch (e) {
 			next(e)
