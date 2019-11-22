@@ -1,7 +1,6 @@
 import React from "react"
 import { useSelector, useDispatch } from "react-redux"
-import { setBookmarks } from "../Store/actions"
-import axios from "axios"
+import { addBookmark, deleteBookmark } from "../Store/actions"
 import "../../styles/ListItem.scss"
 import { GoBookmark } from "react-icons/go"
 
@@ -11,51 +10,20 @@ const ToggleBookmark = props => {
 	const dispatch = useDispatch()
 	const isBookmarked = bookmarks.has(props.id)
 	const { id } = props
-	const addBookmark = async () => {
-		try {
-			await axios.post(`http://localhost:4000/bookmarks/${id}`)
-		} catch (e) {
-			console.log(e)
-		} finally {
-			axios
-				.get(`http://localhost:4000/bookmarks`)
-				.then(response => {
-					const { bookmarks } = response.data.data
-					let map = new Map()
-					bookmarks.map(bookmark => map.set(bookmark[0], bookmark[1]))
-					dispatch(setBookmarks(map))
-				})
-				.catch(e => {
-					console.log(e)
-				})
-		}
+
+	const addOne = () => {
+		dispatch(addBookmark(id))
 	}
-	const deleteBookmark = async () => {
-		try {
-			await axios.delete(`http://localhost:4000/bookmarks/${id}`)
-		} catch (e) {
-			console.log(e)
-		} finally {
-			axios
-				.get(`http://localhost:4000/bookmarks`)
-				.then(response => {
-					const { bookmarks } = response.data.data
-					let map = new Map()
-					bookmarks.map(bookmark => map.set(bookmark[0], bookmark[1]))
-					dispatch(setBookmarks(map))
-				})
-				.catch(e => {
-					console.log(e)
-				})
-		}
+	const deleteOne = () => {
+		dispatch(deleteBookmark(id))
 	}
 
 	const toggleBookmark = e => {
 		e.stopPropagation()
 		if (isBookmarked) {
-			deleteBookmark(props.id)
+			deleteOne()
 		} else {
-			addBookmark(props.id)
+			addOne()
 		}
 	}
 	return (

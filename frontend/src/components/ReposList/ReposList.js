@@ -7,7 +7,6 @@ import "../../styles/ReposList.scss"
 const ReposList = () => {
 	const reducer = useSelector(state => state.reposReducer)
 	const { repos, isLoading, error } = reducer
-	console.log(repos.length)
 	if (isLoading) {
 		return (
 			<div className="repos-list-container">

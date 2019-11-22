@@ -8,7 +8,7 @@ export const initialState = {
 const reposReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case "REPOS_IS_LOADING": {
-			return { ...state, isLoading: true, repos_count: 0 }
+			return { ...state, isLoading: true, repos_count: 0, error: null }
 		}
 
 		case "REPOS_SUCCESS": {
@@ -16,7 +16,8 @@ const reposReducer = (state = initialState, action) => {
 				...state,
 				isLoading: false,
 				repos: action.repos,
-				repos_count: action.repos_count
+				repos_count: action.repos_count,
+				error: null
 			}
 		}
 
