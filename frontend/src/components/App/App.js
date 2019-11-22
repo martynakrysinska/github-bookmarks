@@ -3,30 +3,12 @@ import * as ROUTES from "../../constants/routes"
 import { BrowserRouter as Router, Route } from "react-router-dom"
 import { Navigation, Home, Bookmarks } from "../index"
 import { useDispatch } from "react-redux"
-import {
-	setBookmarks,
-	failBookmarks,
-	loadBookmarks
-} from "../Store/actions"
-
-import axios from "axios"
+import { setBookmarks } from "../Store/actions"
 
 function App() {
 	const dispatch = useDispatch()
 	useEffect(() => {
-		const fetchBookmarks = async () => {
-			try {
-				dispatch(loadBookmarks())
-				const response = await axios.get(`http://localhost:4000/bookmarks`)
-				const { bookmarks } = response.data.data
-				let map = new Map()
-				bookmarks.map(bookmark => map.set(bookmark[0], bookmark[1]))
-				dispatch(setBookmarks(map))
-			} catch (e) {
-				dispatch(failBookmarks(e))
-			}
-		}
-		fetchBookmarks()
+		dispatch(setBookmarks())
 	}, [dispatch])
 
 	return (
