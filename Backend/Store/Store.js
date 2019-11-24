@@ -18,4 +18,4 @@ class Store {
 }
 
 const BookmarkStore = new Store()
-module.exports = { BookmarkStore, Store }
+module.exports = BookmarkStore

@@ -1,4 +1,4 @@
-const { BookmarkStore } = require("../Store/Store")
+const BookmarkStore = require("../Store/Store")
 const axios = require("axios")
 
 module.exports = {

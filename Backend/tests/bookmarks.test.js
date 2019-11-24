@@ -1,5 +1,5 @@
 const request = require("supertest")
-const { BookmarkStore } = require("../Store/Store")
+const BookmarkStore = require("../Store/Store")
 const { repo } = require("./testdata")
 const app = require("../index.js")
 
