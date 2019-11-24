@@ -5,19 +5,19 @@
 }
 
 .search-form {
-    width: 95%;
+    width: 60vw;
     display: inline-grid;
-    grid-template-columns: 6fr 1fr;
+    grid-template-columns: 7fr 1fr;
     justify-content: stretch;
     padding: 1rem;
-    
+
     input {
         padding: .5rem;
-        font-size: 1rem;
+        font-size: 1.4rem;
         outline: none;
-        border-radius: 3px;
+        border-radius: 0.3rem;
         background-color: $color3;
-        border: 1px solid rgba(128, 128, 128, 0.705)
+        border: 0.1rem solid rgba(128, 128, 128, 0.705)
     }
 
     input:focus {
@@ -28,10 +28,10 @@
         padding: .5rem;
         font-size: 1rem;
         outline: none;
-        border-radius: 3px;
+        border-radius: 0.3rem;
         background-color: $color3;
         border: none;
-        border: 1px solid rgba(128, 128, 128, 0.705);
+        border: 0.1rem solid rgba(128, 128, 128, 0.705);
         cursor: pointer;
         margin-left: 1rem
     }

@@ -3,12 +3,12 @@ import { useSelector } from "react-redux"
 import ListItem from "../ListItem"
 import { headline } from "../BookmarksList"
 import "../../styles/ReposList.scss"
+import { GoMarkGithub } from "react-icons/go"
 
 const ReposList = () => {
 	const reducer = useSelector(state => state.reposReducer)
 	const { repos, isLoading, error } = reducer
 
-	console.log(error)
 	if (isLoading) {
 		return (
 			<div className="repos-list-container">
@@ -37,7 +37,12 @@ const ReposList = () => {
 	} else {
 		return (
 			<div className="repos-list-container">
-				<p className="no-repos">No repositories</p>
+				<p className="no-repos">
+					<span className="github-mark-container">
+						<GoMarkGithub />
+					</span>
+					<br></br>No repositories
+				</p>
 			</div>
 		)
 	}

@@ -1,22 +1,21 @@
 @import "./index.scss";
 
 .list-item {
-    width: 95%;
+    width: 60vw;
     list-style: none;
     display: inline-grid;
     grid-template-columns: 1fr 3fr 4fr 2fr 1fr 1fr;
-    border-bottom: 1px solid $color1;
+    border-bottom: 0.1rem solid $color1;
 
     p {
+        font-size: 1.5rem;
         text-align: center;
-        line-height: 29px;
+        line-height: 2.9rem;
     }
 }
 
 .svg-container {
-    width: 100%;   
-    height: 100%;
-    font-size: 38px;
+    font-size: 3.8rem;
     display: flex;
     align-items: center;
     svg {

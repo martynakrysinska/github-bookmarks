@@ -11,17 +11,21 @@ const Navigation = () => {
 	return (
 		<div className="navigation-container">
 			<div className="navigation-grid">
-				<Link to={ROUTES.HOME}>
+				<div>
 					{repos_count}
 					<hr></hr>
-					<GoSearch />
-				</Link>
+					<Link to={ROUTES.HOME}>
+						<GoSearch />
+					</Link>
+				</div>
 
-				<Link to={ROUTES.BOOKMARKS}>
+				<div>
 					{bookmarks_count}
 					<hr></hr>
-					<GoBookmark />
-				</Link>
+					<Link to={ROUTES.BOOKMARKS}>
+						<GoBookmark />
+					</Link>
+				</div>
 			</div>
 		</div>
 	)
