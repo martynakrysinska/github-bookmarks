@@ -6,7 +6,7 @@ import { GoBookmark, GoSearch } from "react-icons/go"
 import "../../styles/Navigation.scss"
 const Navigation = () => {
 	const reducer = useSelector(state => state)
-	const bookmarks_count = reducer.bookmarksReducer.bookmarks.size
+	const bookmarks_count = reducer.bookmarksReducer.bookmarks.length
 	const repos_count = reducer.reposReducer.repos_count || 0
 	return (
 		<div className="navigation-container">

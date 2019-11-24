@@ -6,8 +6,6 @@ import { GoBookmark } from "react-icons/go"
 const BookmarksList = () => {
 	const reducer = useSelector(state => state.bookmarksReducer)
 	const { bookmarks, isLoading, error } = reducer
-	const bookmarksArr = [...bookmarks.values()]
-
 	if (isLoading) {
 		return (
 			<div className="no-repos">
@@ -20,13 +18,12 @@ const BookmarksList = () => {
 				<p>{error.message}</p>
 			</div>
 		)
-	} else if (bookmarksArr.length > 0) {
+	} else if (bookmarks.length > 0) {
 		return (
 			<div>
 				<ul className="repos-list">
 					<ListItem repo={headline} />
-
-					{bookmarksArr.map(bookmark => (
+					{bookmarks.map(bookmark => (
 						<ListItem key={bookmark.id} repo={bookmark} />
 					))}
 				</ul>
