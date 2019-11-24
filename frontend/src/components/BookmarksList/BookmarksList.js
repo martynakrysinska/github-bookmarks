@@ -2,6 +2,7 @@ import React from "react"
 import { useSelector } from "react-redux"
 import { headline } from "./index"
 import ListItem from "../ListItem"
+import { GoBookmark } from "react-icons/go"
 const BookmarksList = () => {
 	const reducer = useSelector(state => state.bookmarksReducer)
 	const { bookmarks, isLoading, error } = reducer
@@ -10,7 +11,7 @@ const BookmarksList = () => {
 	if (isLoading) {
 		return (
 			<div className="no-repos">
-				<p>Loading...</p>
+				<p></p>
 			</div>
 		)
 	} else if (error) {
@@ -34,7 +35,11 @@ const BookmarksList = () => {
 	} else {
 		return (
 			<div className="no-repos">
-				<p>Your bookmarks are empty</p>
+				<p>
+					<GoBookmark className="no-repos-svg" />
+					<br></br>
+					Your bookmarks are empty.
+				</p>
 			</div>
 		)
 	}

@@ -1,6 +1,6 @@
 .repos-list-container {
    min-height: 50vh;
-    display: flex;
+   display: flex;
 }
 
 .no-repos {
@@ -10,8 +10,30 @@
     margin-top: 2rem;
 }
 
- 
 .github-mark-container {
     text-align: right;
-    width: 60vw;
 }
+.no-repos-svg {
+    font-size: 3.5rem;
+    margin-bottom: .5rem;
+}
+
+@keyframes spin {
+    to {transform: rotate(360deg);}
+  }
+   
+  .spin:before {
+    content: '';
+    box-sizing: border-box;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin-top: -10px;
+    margin-left: -10px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    border-top-color: #000;
+    animation: spin .6s linear infinite;
+  }

@@ -3,7 +3,7 @@ import axios from "axios"
 // REPOS ACTIONS
 export const fetchRepos = keyword => async dispatch => {
 	if (!keyword) {
-		let error = new Error("You need to provide a search term")
+		let error = new Error("You need to provide a search term.")
 		return dispatch({
 			type: "REPOS_ERROR",
 			error
