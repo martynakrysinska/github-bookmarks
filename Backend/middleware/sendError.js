@@ -5,7 +5,6 @@ const sendError = (error, req, res, next) => {
 		error: error.message || "Sorry, something went wrong"
 	})
 
-	res.set("Connection", "close")
 	next(error)
 }
 
