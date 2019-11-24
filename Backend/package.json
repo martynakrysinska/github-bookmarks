@@ -5,11 +5,15 @@
   "author": "martynakrysinska <mlecharka@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "yarn-or-npm && nodemon server.js"
+    "dev": "yarn-or-npm && nodemon server.js",
+    "test": "cross-env NODE_ENV=test jest --testTimeout=10000 --detectOpenHandles"
   },
   "devDependencies": {
+    "cross-env": "^6.0.3",
     "eslint": "^6.6.0",
+    "jest": "^24.9.0",
     "nodemon": "^1.19.4",
+    "supertest": "^4.0.2",
     "yarn-or-npm": "^3.0.1"
   },
   "dependencies": {
@@ -17,5 +21,11 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "morgan": "^1.9.1"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ]
   }
 }
