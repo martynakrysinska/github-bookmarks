@@ -1,10 +1,17 @@
 .repos-list-container {
-   min-height: 50%;
-display: flex;
+   min-height: 50vh;
+    display: flex;
 }
 
 .no-repos {
+    font-size: 1.5rem;
     text-align: center;
-    width: 100%;
+    width: 60vw;
     margin-top: 2rem;
+}
+
+ 
+.github-mark-container {
+    text-align: right;
+    width: 60vw;
 }

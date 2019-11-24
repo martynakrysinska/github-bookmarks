@@ -1,26 +1,27 @@
 @import "./index.scss";
 
 .navigation-container {
-    width: 75%;
+    width: 75vw;
     margin: 0 auto;
     color: $color4;
-    border-radius: 5px;
+    border-radius: .5rem;
     background-color: $color3;
-    border: 1px solid rgba(128, 128, 128, 0.705);
+    border: 0.1rem solid rgba(128, 128, 128, 0.705);
 
-    a {
-        color: $color5;
-    }
 }
 
 .navigation-grid {
-    width: 100%;
+    width: 75vw;
     display: inline-grid;
     grid-template-columns: 6fr 6fr;
 
-    a {
+    div {
+        font-size: 1.4rem;
         text-align: center;
+        color: $color5;
         padding: 1rem;
+
+ 
     }
 
 }
