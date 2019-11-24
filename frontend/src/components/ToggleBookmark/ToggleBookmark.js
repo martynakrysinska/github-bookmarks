@@ -8,7 +8,7 @@ const ToggleBookmark = props => {
 	const reducer = useSelector(state => state.bookmarksReducer)
 	const { bookmarks } = reducer
 	const dispatch = useDispatch()
-	const isBookmarked = bookmarks.has(props.id)
+	const isBookmarked = bookmarks.find(bookmark => bookmark.id === props.id)
 	const { id } = props
 
 	const addOne = () => {

@@ -1,6 +1,6 @@
 export const initialState = {
 	isLoading: false,
-	bookmarks: new Map(),
+	bookmarks: [],
 	error: null
 }
 
