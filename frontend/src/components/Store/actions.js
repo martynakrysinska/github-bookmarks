@@ -1,5 +1,5 @@
 import axios from "axios"
-const { localStorage } = window
+
 // REPOS ACTIONS
 export const fetchRepos = keyword => async dispatch => {
 	if (!keyword) {
@@ -37,32 +37,21 @@ export const setBookmarks = () => async dispatch => {
 		type: "BOOKMARKS_IS_LOADING"
 	})
 
-	const { bookmarks } = localStorage
+	try {
+		const response = await axios.get(`http://localhost:4000/bookmarks`)
+		const { bookmarks } = response.data.data
 
-	if (bookmarks) {
+		const bookmarksArr = bookmarks.map(bookmark => bookmark[1])
+
 		dispatch({
 			type: "BOOKMARKS_SUCCESS",
-			bookmarks: JSON.parse(bookmarks)
+			bookmarks: bookmarksArr
 		})
-	} else {
-		try {
-			const response = await axios.get(`http://localhost:4000/bookmarks`)
-			const { bookmarks } = response.data.data
-
-			const bookmarksArr = bookmarks.map(bookmark => bookmark[1])
-
-			localStorage.setItem("bookmarks", JSON.stringify(bookmarksArr))
-
-			dispatch({
-				type: "BOOKMARKS_SUCCESS",
-				bookmarks: bookmarksArr
-			})
-		} catch (e) {
-			dispatch({
-				type: "BOOKMARKS_ERROR",
-				error: e
-			})
-		}
+	} catch (e) {
+		dispatch({
+			type: "BOOKMARKS_ERROR",
+			error: e
+		})
 	}
 }
 
@@ -74,8 +63,6 @@ export const addBookmark = id => async dispatch => {
 		const { bookmarks } = response.data.data
 
 		const bookmarksArr = bookmarks.map(bookmark => bookmark[1])
-
-		localStorage.setItem("bookmarks", JSON.stringify(bookmarksArr))
 
 		dispatch({
 			type: "BOOKMARKS_SUCCESS",
@@ -96,8 +83,6 @@ export const deleteBookmark = id => async dispatch => {
 		)
 		const { bookmarks } = response.data.data
 		const bookmarksArr = bookmarks.map(bookmark => bookmark[1])
-
-		localStorage.setItem("bookmarks", JSON.stringify(bookmarksArr))
 
 		dispatch({
 			type: "BOOKMARKS_SUCCESS",
